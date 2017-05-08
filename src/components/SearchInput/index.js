@@ -3,8 +3,10 @@ import React, {
     PropTypes
 } from 'react';
 import {connect} from 'react-redux';
+import { connectStyle } from 'native-base';
 import {addToLearn} from '../../actions/knowledge';
 import {InputGroup, Input, Icon, Button} from 'native-base';
+import styles from './styles';
 
 class SearchInput extends Component {
     constructor() {
@@ -32,7 +34,7 @@ class SearchInput extends Component {
 
     render() {
         return (
-            <InputGroup iconRight>
+            <InputGroup>
                 <Input autoFocus={this.props.autoFocus}
                        returnKeyType="next"
                        ref={input => this.input = input}
@@ -41,9 +43,10 @@ class SearchInput extends Component {
                        value={this.props.value}
                        placeholder={this.props.placeholder}/>
                 <Button onPress={this.handleOnAdd}
-                        transparent
-                        primary>
-                    <Icon active name='ios-add'/>
+                        style={styles.button}
+                        dark>
+
+                    <Icon name='ios-add'/>
                 </Button>
 
             </InputGroup>

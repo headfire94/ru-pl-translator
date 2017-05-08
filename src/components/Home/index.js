@@ -1,13 +1,12 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
-
-import {Text} from 'react-native';
 import {Actions} from 'react-native-router-flux';
+
 import SearchInput from '../SearchInput';
 import {searchHandler} from '../../actions/translator';
 import {RUSSIAN, ENGLISH, POLISH} from '../../constants/languages';
 
-import {Container, Content, Icon, Button, Header, Left, Title, Right, Body} from 'native-base';
+import {Container, Content, Icon, Button, Header, Left, Text, Title, Right, Body} from 'native-base';
 class Home extends Component {
     static propTypes = {
         russian: PropTypes.string,
@@ -56,6 +55,7 @@ class Home extends Component {
                             this.refs.firstInput.input._root.focus();
                         }}
                         placeholder="Polscie"/>
+
                 </Content>
             </Container>
         );

@@ -2,9 +2,17 @@ import React, {
     Component,
     PropTypes
 } from 'react';
+import {connect} from 'react-redux';
+import {addToLearn} from '../../actions/knowledge';
 import {InputGroup, Input, Icon, Button} from 'native-base';
 
 class SearchInput extends Component {
+    constructor() {
+        super();
+
+        this.handleOnAdd = this.handleOnAdd.bind(this);
+    }
+
     static propTypes = {
         autoFocus: PropTypes.bool,
         onSubmitEditing: PropTypes.func,
@@ -13,6 +21,14 @@ class SearchInput extends Component {
         onChange: PropTypes.func,
         value: PropTypes.string
     };
+
+    handleOnAdd() {
+        const value = this.props.value;
+
+        if (value) {
+            this.props.addToLearn(value);
+        }
+    }
 
     render() {
         return (
@@ -24,7 +40,7 @@ class SearchInput extends Component {
                        onSubmitEditing={this.props.onSubmitEditing}
                        value={this.props.value}
                        placeholder={this.props.placeholder}/>
-                <Button onPress={this.props.onAdd}
+                <Button onPress={this.handleOnAdd}
                         transparent
                         primary>
                     <Icon active name='ios-add'/>
@@ -35,4 +51,4 @@ class SearchInput extends Component {
     }
 }
 
-export default SearchInput;
+export default connect(null, {addToLearn})(SearchInput);

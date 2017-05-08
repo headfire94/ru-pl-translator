@@ -1,5 +1,9 @@
 {
   "expo": {
+    "name": "ru-pl-translator",
+    "icon": "https://s3.amazonaws.com/exp-us-standard/rnplay/app-icon.png",
+    "version": "1.0.0",
+    "slug": "ru-pl-translator",
     "sdkVersion": "16.0.0"
   }
 }

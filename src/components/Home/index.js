@@ -1,6 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 
+import {Text} from 'react-native';
+import {Actions} from 'react-native-router-flux';
 import SearchInput from '../SearchInput';
 import {searchHandler} from '../../actions/translator';
 import {RUSSIAN, ENGLISH, POLISH} from '../../constants/languages';
@@ -19,14 +21,14 @@ class Home extends Component {
             <Container>
                 <Header>
                     <Left>
-                        <Button transparent>
-                            <Icon name='menu'/>
+                        <Button transparent onPress={() => Actions.toLearn()}>
+                            <Icon active name="book" />
                         </Button>
                     </Left>
+
                     <Body>
-                    <Title>Header</Title>
+                    <Title>{(this.props.name) ? this.props.name : 'Home'}</Title>
                     </Body>
-                    <Right />
                 </Header>
                 <Content>
                     <SearchInput

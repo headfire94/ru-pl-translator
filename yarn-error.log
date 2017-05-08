@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react-native-modalbox
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add --dev babel-preset-flow
 
 PATH: 
   C:\Python27\;C:\Python27\Scripts;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Users\Q\instantclient_12_1;C:\Program Files\TortoiseHg\;C:\Program Files\OpenVPN\bin;C:\Program Files (x86)\Yarn\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Skype\Phone\;C:\ProgramData\chocolatey\bin;C:\Users\Q\AppData\Local\Microsoft\WindowsApps;C:\instantclient_12_1;C:\Users\Q\AppData\Local\Yarn\.bin;C:\Program Files\Heroku\bin;C:\Users\Q\AppData\Roaming\npm;C:\Users\Q\AppData\Local\Android\sdk\tools;C:\Users\Q\AppData\Local\Android\sdk\platform-tools
@@ -19,6 +19,7 @@ npm manifest:
     "version": "0.1.0",
     "private": true,
     "devDependencies": {
+      "flow-bin": "^0.45.0",
       "jest-expo": "^0.4.0",
       "react-native-debugger-open": "^0.3.7",
       "react-native-scripts": "0.0.29",
@@ -38,10 +39,19 @@ npm manifest:
     },
     "dependencies": {
       "expo": "^16.0.0",
+      "lodash": "^4.17.4",
       "native-base": "^2.1.3",
       "react": "16.0.0-alpha.6",
       "react-native": "^0.43.4",
-      "react-redux": "^5.0.4"
+      "react-native-navigation-redux-helpers": "^0.5.0",
+      "react-native-router-flux": "3.38.0",
+      "react-redux": "^5.0.4",
+      "redux": "^3.6.0",
+      "redux-actions": "^2.0.2",
+      "redux-devtools-extension": "^2.13.0",
+      "redux-persist": "^4.7.1",
+      "redux-thunk": "^2.2.0",
+      "uuid": "^3.0.1"
     }
   }
 
@@ -1143,7 +1153,7 @@ Lockfile:
       babel-plugin-transform-function-bind "^6.5.2"
       babel-preset-react-native "^1.5.6"
   
-  babel-preset-react-native@^1.5.6, babel-preset-react-native@^1.9.1:
+  babel-preset-react-native@^1.5.6, babel-preset-react-native@^1.9.0, babel-preset-react-native@^1.9.1:
     version "1.9.1"
     resolved "https://registry.yarnpkg.com/babel-preset-react-native/-/babel-preset-react-native-1.9.1.tgz#ec8e378274410d78f550fa9f8edd70353f3bb2fe"
     dependencies:
@@ -2307,7 +2317,7 @@ Lockfile:
       semver "^5.1.0"
       through2 "^2.0.0"
   
-  fbjs@^0.8.4, fbjs@^0.8.9, fbjs@~0.8.9:
+  fbjs@^0.8.1, fbjs@^0.8.4, fbjs@^0.8.9, fbjs@~0.8.9:
     version "0.8.12"
     resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.12.tgz#10b5d92f76d45575fd63a217d4ea02bea2f8ed04"
     dependencies:
@@ -2401,6 +2411,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/find-up/-/find-up-2.1.0.tgz#45d1b7e506c717ddd482775a2b77920a3c0c57a7"
     dependencies:
       locate-path "^2.0.0"
+  
+  flow-bin@^0.45.0:
+    version "0.45.0"
+    resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.45.0.tgz#009dd0f577a3f665c74ca8be827ae8c2dd8fd6b5"
   
   for-in@^1.0.1:
     version "1.0.2"
@@ -2886,7 +2900,7 @@ Lockfile:
     version "2.0.7-rc.1"
     resolved "https://registry.yarnpkg.com/instapromise/-/instapromise-2.0.7-rc.1.tgz#34aff619a45ea7d32bb122866a9e315ee73033e8"
   
-  invariant@^2.0.0, invariant@^2.2.0, invariant@^2.2.2:
+  invariant@^2.0.0, invariant@^2.2.0, invariant@^2.2.1, invariant@^2.2.2:
     version "2.2.2"
     resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
     dependencies:
@@ -3409,7 +3423,7 @@ Lockfile:
     dependencies:
       jsonify "~0.0.0"
   
-  json-stringify-safe@~5.0.1:
+  json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
     version "5.0.1"
     resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   
@@ -3535,7 +3549,7 @@ Lockfile:
     version "0.1.3"
     resolved "https://registry.yarnpkg.com/lock/-/lock-0.1.3.tgz#f66c1caa0c41956e1426608039ed59b71bdf1854"
   
-  lodash-es@^4.2.0, lodash-es@^4.2.1:
+  lodash-es@^4.17.4, lodash-es@^4.2.0, lodash-es@^4.2.1:
     version "4.17.4"
     resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.4.tgz#dcc1d7552e150a0640073ba9cb31d70f032950e7"
   
@@ -3650,7 +3664,7 @@ Lockfile:
     version "3.10.1"
     resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
   
-  lodash@^4.0.0, lodash@^4.10.1, lodash@^4.11.1, lodash@^4.14.0, lodash@^4.14.1, lodash@^4.15.0, lodash@^4.16.6, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1, lodash@~4.17.2:
+  lodash@^4.0.0, lodash@^4.10.1, lodash@^4.11.1, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.14.1, lodash@^4.15.0, lodash@^4.16.6, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1, lodash@~4.17.2:
     version "4.17.4"
     resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
   
@@ -4455,6 +4469,13 @@ Lockfile:
       minimist "^1.2.0"
       strip-json-comments "~2.0.1"
   
+  react-addons-pure-render-mixin@^15.0.2:
+    version "15.5.2"
+    resolved "https://registry.yarnpkg.com/react-addons-pure-render-mixin/-/react-addons-pure-render-mixin-15.5.2.tgz#ebb846aeb2fd771336c232822923108f87d5bff2"
+    dependencies:
+      fbjs "^0.8.4"
+      object-assign "^4.1.0"
+  
   react-clone-referenced-element@^1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/react-clone-referenced-element/-/react-clone-referenced-element-1.0.1.tgz#2bba8c69404c5e4a944398600bcc4c941f860682"
@@ -4491,6 +4512,17 @@ Lockfile:
     dependencies:
       lodash "^4.11.1"
   
+  react-native-experimental-navigation@0.26.x:
+    version "0.26.12"
+    resolved "https://registry.yarnpkg.com/react-native-experimental-navigation/-/react-native-experimental-navigation-0.26.12.tgz#8b458757178b06908b3e8fe7042458332e8e4825"
+    dependencies:
+      babel-plugin-syntax-flow "^6.8.0"
+      babel-plugin-transform-flow-strip-types "^6.8.0"
+      babel-preset-react-native "^1.9.0"
+      clamp "^1.0.1"
+      fbjs "^0.8.1"
+      react-addons-pure-render-mixin "^15.0.2"
+  
   "react-native-fbads@https://github.com/callstack-io/react-native-fbads/tarball/v4.1.0":
     version "4.1.0"
     resolved "https://github.com/callstack-io/react-native-fbads/tarball/v4.1.0#e836ed7f4502593d4a4757f27cdfa0ffef4dc729"
@@ -4506,6 +4538,18 @@ Lockfile:
   "react-native-maps@https://github.com/expo/react-native-maps/archive/v0.12.2-exp.1.tar.gz":
     version "0.12.2"
     resolved "https://github.com/expo/react-native-maps/archive/v0.12.2-exp.1.tar.gz#1984bfe5a8a341dd3b44ad565cfcd1b25a5c2b03"
+  
+  react-native-navigation-redux-helpers@^0.5.0:
+    version "0.5.0"
+    resolved "https://registry.yarnpkg.com/react-native-navigation-redux-helpers/-/react-native-navigation-redux-helpers-0.5.0.tgz#2cfa39422c5a8973ab8037963473ca89bc7ce0c5"
+  
+  react-native-router-flux@3.38.0:
+    version "3.38.0"
+    resolved "https://registry.yarnpkg.com/react-native-router-flux/-/react-native-router-flux-3.38.0.tgz#f5f8ec2875b46f96f61006ff502d0d80268e6ce2"
+    dependencies:
+      react-native-experimental-navigation "0.26.x"
+      react-native-tabs "^1.0.9"
+      react-static-container "1.0.1"
   
   react-native-safe-module@^1.1.0:
     version "1.1.1"
@@ -4543,6 +4587,10 @@ Lockfile:
     dependencies:
       color "^0.11.1"
       lodash "^4.0.0"
+  
+  react-native-tabs@^1.0.9:
+    version "1.0.9"
+    resolved "https://registry.yarnpkg.com/react-native-tabs/-/react-native-tabs-1.0.9.tgz#75d3c35e8b5b6970869eab282372cb32e2a782cd"
   
   react-native-vector-icons@4.0.0, react-native-vector-icons@~4.0.0:
     version "4.0.0"
@@ -4655,7 +4703,7 @@ Lockfile:
       loose-envify "^1.1.0"
       prop-types "^15.0.0"
   
-  react-static-container@^1.0.1:
+  react-static-container@1.0.1, react-static-container@^1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/react-static-container/-/react-static-container-1.0.1.tgz#694c0dd68a896b879519afb548399cc1989c9ab0"
   
@@ -4773,11 +4821,40 @@ Lockfile:
       private "~0.1.5"
       source-map "~0.5.0"
   
+  reduce-reducers@^0.1.0:
+    version "0.1.2"
+    resolved "https://registry.yarnpkg.com/reduce-reducers/-/reduce-reducers-0.1.2.tgz#fa1b4718bc5292a71ddd1e5d839c9bea9770f14b"
+  
+  redux-actions@^2.0.2:
+    version "2.0.2"
+    resolved "https://registry.yarnpkg.com/redux-actions/-/redux-actions-2.0.2.tgz#49b2d9511c240a96cb2c0ca27cb15d016faecec0"
+    dependencies:
+      invariant "^2.2.1"
+      lodash "^4.13.1"
+      lodash-es "^4.17.4"
+      reduce-reducers "^0.1.0"
+  
+  redux-devtools-extension@^2.13.0:
+    version "2.13.2"
+    resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.2.tgz#e0f9a8e8dfca7c17be92c7124958a3b94eb2911d"
+  
   redux-logger@^2.7.4:
     version "2.10.2"
     resolved "https://registry.yarnpkg.com/redux-logger/-/redux-logger-2.10.2.tgz#3c5a5f0a6f32577c1deadf6655f257f82c6c3937"
     dependencies:
       deep-diff "0.3.4"
+  
+  redux-persist@^4.7.1:
+    version "4.7.1"
+    resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-4.7.1.tgz#162abce7063066db37fdb2d51ed39a16c6561ac5"
+    dependencies:
+      json-stringify-safe "^5.0.1"
+      lodash "^4.17.4"
+      lodash-es "^4.17.4"
+  
+  redux-thunk@^2.2.0:
+    version "2.2.0"
+    resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.2.0.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"
   
   redux@^3.6.0:
     version "3.6.0"
@@ -6060,5 +6137,5 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/yesno/-/yesno-0.0.1.tgz#ffbc04ff3d6f99dad24f7463134e9b92ae41bef6"
 
 Trace: 
-  Error: ENOENT: no such file or directory, open 'C:\Work\ru-pl-translator\node_modules\mute-stream\.nyc_output\33508.json'
+  Error: EBUSY: resource busy or locked, open 'C:\Work\ru-pl-translator\node_modules\flow-bin\flow-win64-v0.45.0\flow.exe'
       at Error (native)

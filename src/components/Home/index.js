@@ -7,6 +7,7 @@ import {searchHandler} from '../../actions/translator';
 import {RUSSIAN, ENGLISH, POLISH} from '../../constants/languages';
 
 import {Container, Content, Icon, Button, Header, Left, Text, Title, Right, Body} from 'native-base';
+import styles from './styles';
 class Home extends Component {
     static propTypes = {
         russian: PropTypes.string,
@@ -17,7 +18,7 @@ class Home extends Component {
 
     render() {
         return (
-            <Container>
+            <Container style={styles.container}>
                 <Header>
                     <Left>
                         <Button transparent onPress={() => Actions.toLearn()}>
@@ -29,7 +30,7 @@ class Home extends Component {
                     <Title>{(this.props.name) ? this.props.name : 'Home'}</Title>
                     </Body>
                 </Header>
-                <Content>
+                <Content style={styles.content}>
                     <SearchInput
                         onSubmitEditing={() => {
                             this.refs.secondInput.input._root.focus();

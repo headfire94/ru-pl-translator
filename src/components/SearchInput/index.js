@@ -44,7 +44,7 @@ class SearchInput extends Component {
                        placeholder={this.props.placeholder}/>
                 <Button onPress={this.handleOnAdd}
                         style={styles.button}
-                        dark>
+                        transparent>
 
                     <Icon name='ios-add'/>
                 </Button>

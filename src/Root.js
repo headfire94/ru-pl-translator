@@ -5,7 +5,7 @@ import {StyleProvider} from 'native-base';
 import AppNavigator from './AppNavigator';
 import configureStore from './configureStore';
 import getTheme from '../native-base-theme/components';
-import platform from '../native-base-theme/variables/platform';
+import platform from './theme/baseTheme';
 
 class Root extends Component {
 

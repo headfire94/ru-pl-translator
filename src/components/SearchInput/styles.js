@@ -1,10 +1,6 @@
-
-const React = require('react-native');
-
-const { StyleSheet } = React;
-
 export default{
     button: {
         alignSelf: 'center',
-    },
+        marginRight: 5
+    }
 };

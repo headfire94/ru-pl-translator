@@ -66,7 +66,7 @@ export default {
     get iconSizeSmall() {
         return this.iconFontSize * 0.6;
     },
-
+    sTabBarActiveTextColor: '#fff',
 
     // Card
     cardDefaultBg: '#fff',
@@ -79,12 +79,12 @@ export default {
 
 
     // Color
-    brandPrimary: '#5067FF',
+    brandPrimary: '#5b5b5b',
     brandInfo: '#5bc0de',
     brandSuccess: '#5cb85c',
     brandDanger: '#d9534f',
     brandWarning: '#f0ad4e',
-    brandSidebar: '#252932',
+    brandSidebar: '#212121',
 
 
     // Font
@@ -114,16 +114,17 @@ export default {
 
 
     // Header
-    iosToolbarBtnColor: '#007aff',
-    toolbarDefaultBg: (Platform.OS === 'ios') ? '#F8F8F8' : '#4179F7',
+    iosToolbarBtnColor: '#fff',
+    toolbarDefaultBg: (Platform.OS === 'ios') ? '#212121' : '#212121',
     toolbarHeight: (Platform.OS === 'ios') ? 64 : 56,
     toolbarIconSize: (Platform.OS === 'ios') ? 20 : 22,
     toolbarInputColor: '#CECDD2',
-    toolbarInverseBg: '#222',
-    toolbarTextColor: (Platform.OS === 'ios') ? '#000' : '#fff',
+    toolbarInverseBg: '#fff',
+    toolbarTextColor: (Platform.OS === 'ios') ? '#fff' : '#fff',
     get statusBarColor() {
         return color(this.toolbarDefaultBg).darken(0.2).hexString();
     },
+    titleFontColor: '#fff',
 
 
     // Icon
@@ -133,7 +134,7 @@ export default {
 
 
     // InputGroup
-    inputFontSize: 15,
+    inputFontSize: 18,
     inputBorderColor: '#D9D5DC',
     inputSuccessBorderColor: '#2b8339',
     inputErrorBorderColor: '#ed2f2f',
@@ -146,7 +147,7 @@ export default {
     },
 
     inputGroupMarginBottom: 10,
-    inputHeightBase: 40,
+    inputHeightBase: 60,
     inputPaddingLeft: 5,
 
     get inputPaddingLeftIcon() {
@@ -199,14 +200,14 @@ export default {
 
 
     // Text
-    textColor: '#000',
+    textColor: '#fff',
     inverseTextColor: '#fff',
 
 
     // Title
     titleFontSize: (Platform.OS === 'ios') ? 17 : 19,
     subTitleFontSize: (Platform.OS === 'ios') ? 12 : 14,
-    subtitleColor: '#8e8e93',
+    subtitleColor: '#fff',
 
 
     // Other

@@ -191,7 +191,7 @@ export default (variables = variable) => {
         alignSelf: null,
         paddingHorizontal: variables.buttonPadding,
       },
-      flex: ((platform === 'ios') && (platformStyle!=='material')) ? 1 : 0.5,
+      flex: ((platform === 'ios') && (platformStyle!=='material')) ? 1 : 0.2,
       alignSelf: 'center',
       alignItems: 'flex-start',
     },

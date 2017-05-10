@@ -18,7 +18,6 @@ import {
     ListItem,
     Text
 } from 'native-base';
-import styles from './styles';
 
 class ToLearn extends Component {
     static propTypes = {
@@ -29,7 +28,7 @@ class ToLearn extends Component {
         const {knowledge} = this.props;
 
         return (
-            <Container style={styles.container}>
+            <Container>
                 <Header>
                     <Left>
                         <Button transparent onPress={() => Actions.home()}>
@@ -41,7 +40,7 @@ class ToLearn extends Component {
                     <Title>{(this.props.name) ? this.props.name : 'To Learn'}</Title>
                     </Body>
                 </Header>
-                <Content style={styles.content}>
+                <Content>
                     <List>
                         {
                             knowledge.map(item => <ListItem

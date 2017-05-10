@@ -5,7 +5,7 @@ import React, {
 import {connect} from 'react-redux';
 import { connectStyle } from 'native-base';
 import {addToLearn} from '../../actions/knowledge';
-import {InputGroup, Input, Icon, Button} from 'native-base';
+import {InputGroup, Input, Icon, Button, Toast} from 'native-base';
 import styles from './styles';
 
 class SearchInput extends Component {
@@ -28,6 +28,13 @@ class SearchInput extends Component {
         const value = this.props.value;
 
         if (value) {
+            Toast.show({
+                text: 'Added',
+                position: 'top',
+                buttonText: 'Okay',
+                duration: 600
+            });
+
             this.props.addToLearn(value);
         }
     }
@@ -37,9 +44,9 @@ class SearchInput extends Component {
             <InputGroup>
                 <Input autoFocus={this.props.autoFocus}
                        returnKeyType="next"
-                       ref={input => this.input = input}
+                       ref="input"
                        onChangeText={text => this.props.onChange(text)}
-                       onSubmitEditing={this.props.onSubmitEditing}
+                       onSubmitEditing={() => this.props.onSubmitEditing()}
                        value={this.props.value}
                        placeholder={this.props.placeholder}/>
                 <Button onPress={this.handleOnAdd}
@@ -54,4 +61,4 @@ class SearchInput extends Component {
     }
 }
 
-export default connect(null, {addToLearn})(SearchInput);
+export default connect(null, {addToLearn}, null, { withRef: true })(SearchInput);

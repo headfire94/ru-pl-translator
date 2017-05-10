@@ -26,14 +26,15 @@ const translate = (from, text, dispatch) => {
 const throttledTranslate = throttle(translate, 150);
 
 export const searchHandler = language => data => dispatch => {
-    if (!data || !data.trim()) {
-        return
-    }
-
     dispatch(updateSearchValue({
         language: language,
         value: data
     }));
+
+    if (!data || !data.trim()) {
+        return
+    }
+
     dispatch(handleSearchRequest({
         from: language,
         text: data

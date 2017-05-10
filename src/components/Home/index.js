@@ -7,7 +7,7 @@ import {searchHandler} from '../../actions/translator';
 import {RUSSIAN, ENGLISH, POLISH} from '../../constants/languages';
 
 import {Container, Content, Icon, Button, Header, Left, Text, Title, Right, Body} from 'native-base';
-import styles from './styles';
+
 class Home extends Component {
     static propTypes = {
         russian: PropTypes.string,
@@ -18,7 +18,7 @@ class Home extends Component {
 
     render() {
         return (
-            <Container style={styles.container}>
+            <Container>
                 <Header>
                     <Left>
                         <Button transparent onPress={() => Actions.toLearn()}>
@@ -30,10 +30,10 @@ class Home extends Component {
                     <Title>{(this.props.name) ? this.props.name : 'Home'}</Title>
                     </Body>
                 </Header>
-                <Content style={styles.content}>
+                <Content>
                     <SearchInput
                         onSubmitEditing={() => {
-                            this.refs.secondInput.input._root.focus();
+                            this.refs.secondInput.wrappedInstance.refs.input._root.focus();
                         }}
                         ref="firstInput"
                         onChange={text => this.props.onSearchRussian(text)}
@@ -44,7 +44,7 @@ class Home extends Component {
                         ref="secondInput"
                         onChange={text => this.props.onSearchEnglish(text)}
                         onSubmitEditing={() => {
-                            this.refs.thirdInput.input._root.focus();
+                            this.refs.thirdInput.wrappedInstance.refs.input._root.focus();
                         }}
                         value={this.props.english}
                         placeholder="English"/>
@@ -53,7 +53,7 @@ class Home extends Component {
                         value={this.props.polish}
                         onChange={text => this.props.onSearchPolish(text)}
                         onSubmitEditing={() => {
-                            this.refs.firstInput.input._root.focus();
+                            this.refs.firstInput.wrappedInstance.refs.input._root.focus();
                         }}
                         placeholder="Polscie"/>
 

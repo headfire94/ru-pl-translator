@@ -7,6 +7,9 @@ declare module 'expo' {
 declare module 'lodash' {
   declare module.exports: any;
 }
+declare module 'lodash/debounce' {
+  declare module.exports: any;
+}
 
 declare module 'native-base' {
   declare module.exports: any;

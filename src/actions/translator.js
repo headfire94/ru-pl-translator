@@ -1,3 +1,4 @@
+// @flow
 import {createAction} from 'redux-actions';
 import throttle from 'lodash/debounce';
 import {RUSSIAN, ENGLISH, POLISH} from '../constants/languages';
@@ -7,10 +8,11 @@ export const handleSearchSuccess = createAction('RUSSIAN_SEARCH_SUCCESS');
 export const handleSearchFailure = createAction('RUSSIAN_SEARCH_FAILURE');
 
 import api from '../utils/api';
+type Dispatch = () => void;
 
 const LANGUAGES = [RUSSIAN, ENGLISH, POLISH];
 
-const translate = (from, text, dispatch) => {
+const translate = (from, text, dispatch): void => {
     LANGUAGES.forEach(lang => {
         if (lang === from) {return}
 
@@ -25,7 +27,7 @@ const translate = (from, text, dispatch) => {
 
 const throttledTranslate = throttle(translate, 150);
 
-export const searchHandler = language => data => dispatch => {
+export const searchHandler = (language: string) => (data: string) => (dispatch: Dispatch) => {
     dispatch(updateSearchValue({
         language: language,
         value: data

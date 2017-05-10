@@ -1,17 +1,26 @@
+// @flow
 const API_ROOT = 'https://translate.yandex.net/api/v1.5/tr.json/translate';
 const responseBody = res => res.json();
 
-const getParams = (sourceLang, targetLang, searchText) => ({
+type Params = {
+    key: string,
+    lang: string,
+    text: string
+}
+
+const getParams = (sourceLang: string, targetLang: string, searchText: string):Params => ({
     key: 'trnsl.1.1.20170503T170832Z.b8792eeba41df099.f1e3b8f457a3dbacc37a57fd97f0dc7bfd88b71a',
     lang: `${sourceLang}-${targetLang}`,
     text: searchText
 });
 
-const api = (sourceLang, targetLang, searchText) => {
-    const params = getParams(sourceLang, targetLang, searchText);
-    const query = Object.keys(params)
-        .map(k => k + '=' + params[k])
-        .join('&');
+const getQuery = (params: Params) => Object.keys(params)
+    .map(k => k + '=' + params[k])
+    .join('&');
+
+const api = (sourceLang: string, targetLang: string, searchText: string) => {
+    const params = getParams.apply(null, arguments);
+    const query: string = getQuery(params);
 
     return fetch(`${API_ROOT}?${query}`)
         .then(responseBody)

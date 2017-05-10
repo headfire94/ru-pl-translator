@@ -1,38 +1,8 @@
 [ignore]
 .*node_modules/.*
-; We fork some components by platform
-.*/*[.]android.js
-
-        ; Ignore "BUCK" generated dirs
-        <PROJECT_ROOT>/\.buckd/
-
-; Ignore unexpected extra "@providesModule"
-.*/node_modules/.*/node_modules/fbjs/.*
-
-; Ignore duplicate module providers
-; For RN Apps installed via npm, "Libraries" folder is inside
-; "node_modules/react-native" but in the source repo it is in the root
-.*/Libraries/react-native/React.js
-.*/Libraries/react-native/ReactNative.js
-
-; Additional create-react-native-app ignores
-
-; Ignore duplicate module providers
-.*/node_modules/fbemitter/lib/*
-
-; Ignore misbehaving dev-dependencies
-.*/node_modules/xdl/build/*
-.*/node_modules/reqwest/tests/*
-
-; Ignore missing expo-sdk dependencies (temporarily)
-; https://github.com/exponent/exponent-sdk/issues/36
-.*/node_modules/expo/src/*
-
-; Ignore react-native-fbads dependency of the expo sdk
-.*/node_modules/react-native-fbads/*
 
 [include]
-src/
+./src
 [libs]
 flow-typed/package-dep-libdefs.js
 

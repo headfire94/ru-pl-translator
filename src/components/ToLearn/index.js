@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {Actions} from 'react-native-router-flux';
+import {Clipboard} from 'react-native';
 
 import {removeFromLearn} from '../../actions/knowledge';
 
@@ -16,12 +17,24 @@ import {
     Body,
     List,
     ListItem,
-    Text
+    Text,
+    Toast
 } from 'native-base';
 
 class ToLearn extends Component {
     static propTypes = {
         knowledge: PropTypes.array.isRequired
+    };
+
+    _setClipboardContent = async text => {
+        Clipboard.setString(text);
+
+        Toast.show({
+            text: 'Copied',
+            position: 'top',
+            buttonText: 'Okay',
+            duration: 600
+        });
     };
 
     render() {
@@ -45,8 +58,12 @@ class ToLearn extends Component {
                         {
                             knowledge.map(item => <ListItem
                                 key={item.id}>
-                                <Text>{item.text}</Text>
+                                <Body><Text>{item.text}</Text></Body>
                                 <Right>
+                                    <Button onPress={() => this._setClipboardContent(item.text)}
+                                            transparent>
+                                        <Icon name="ios-clipboard-outline"/>
+                                    </Button>
                                     <Button onPress={() => this.props.removeFromLearn(item.id)}
                                             transparent>
                                         <Icon name="ios-trash"/>

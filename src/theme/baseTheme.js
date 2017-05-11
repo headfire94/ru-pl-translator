@@ -3,7 +3,7 @@ import color from 'color';
 import { Platform } from 'react-native';
 
 export default {
-
+    DefaultFontSize: 18,
     // Badge
     badgeBg: '#ED1727',
     badgeColor: '#fff',
